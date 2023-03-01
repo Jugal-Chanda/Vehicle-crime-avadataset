@@ -22,6 +22,6 @@ for frame_dir in frames_dirs:
     for frame_name in all_frames:
         frame_path = os.path.join(frame_dir_path, frame_name)
         new_frame_path = os.path.join(new_frame_dir, str(
-            len(os.listdir(new_frame_dir))+1)+".jpg")
+            len(os.listdir(new_frame_dir)))+".jpg")
         shutil.copy(frame_path, new_frame_path)
     shutil.rmtree(frame_dir_path)
