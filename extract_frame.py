@@ -83,7 +83,6 @@ for video_id in video_ids.keys():
                 if ret:
                     current_frame_number = int(
                         vcap.get(cv2.CAP_PROP_POS_FRAMES))
-                    print(current_frame_number)
                     if current_frame_number >= start_frame and current_frame_number <= end_frame:
                         frame_path = os.path.join(
                             tmp_frame_dir, str(current_frame_number)+".jpg")
@@ -94,7 +93,7 @@ for video_id in video_ids.keys():
                     break
 
             vcap.release()
-
+        os.remove(video_path)
 with open("final_video_ids_with_time.json", "w") as f:
     json.dump(video_ids, f)
 
