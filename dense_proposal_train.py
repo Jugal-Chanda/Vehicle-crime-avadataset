@@ -51,7 +51,7 @@ for root, dirs, files in os.walk(choose_frames_all_dir):
                     [left, top, right, bottom, parsed['confidence']])
                 dicts.append([left, top, right, bottom, parsed['confidence']])
         results_dict[key] = results
-with open(avaMin_dense_proposals_path, "wb") as pklfile:
+with open(avaMin_dense_proposals_path, "w") as pklfile:
     pickle.dump(results_dict, pklfile)
 
 for i in results_dict:
