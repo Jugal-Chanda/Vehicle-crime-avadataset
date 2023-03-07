@@ -27,17 +27,13 @@ cnt = 0
 for video_id in video_ids.keys():
     if video_id in downloaded_video_ids:
         continue
-    if cnt == 1:
+    if cnt == 10:
         break
     link = "https://www.youtube.com/watch?v="+video_id
     try:
         yt = YouTube(link)
-    except:
-        print("Connection Error")  # to handle exception
-
-    yt = yt.streams.get_highest_resolution()
-    video_downloaded = False
-    try:
+        yt = yt.streams.get_highest_resolution()
+        video_downloaded = False
         filename = video_id+".mp4"
         yt.download(video_download_dir, filename=filename)
         print(video_id, "Downloded")
@@ -91,11 +87,10 @@ for video_id in video_ids.keys():
                         break
                 else:
                     break
-
             vcap.release()
+        with open("extracted_frames_video_ids.json", "w") as f:
+            json.dump(downloaded_video_ids, f)
+
         os.remove(video_path)
 with open("final_video_ids_with_time.json", "w") as f:
     json.dump(video_ids, f)
-
-with open("extracted_frames_video_ids.json", "w") as f:
-    json.dump(downloaded_video_ids, f)

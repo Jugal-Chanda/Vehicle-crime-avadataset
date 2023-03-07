@@ -16,13 +16,14 @@ for frame_dir in frames_dirs:
     if len(all_frames) < 300:
         shutil.rmtree(frame_dir_path)
         continue
-    new_frame_dir = os.path.join(renamed_frames_dir, str(
-        len(os.listdir(renamed_frames_dir)) + 1))
+    temp_new_frame_dir = str(
+        len(os.listdir(renamed_frames_dir)) + 1)
+    new_frame_dir = os.path.join(renamed_frames_dir, temp_new_frame_dir)
     os.mkdir(new_frame_dir)
     for frame_name in all_frames:
         frame_path = os.path.join(frame_dir_path, frame_name)
         new_frame_name = str(len(os.listdir(new_frame_dir)))
-        new_frame_name = frame_dir+"_"+new_frame_name.zfill(6)+".jpg"
+        new_frame_name = temp_new_frame_dir+"_"+new_frame_name.zfill(6)+".jpg"
 
         new_frame_path = os.path.join(new_frame_dir, new_frame_name)
         shutil.copy(frame_path, new_frame_path)
