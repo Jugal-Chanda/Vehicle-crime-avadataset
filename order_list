@@ -1,0 +1,11 @@
+change_via_json_file_name.py
+delete_all_dirs_with_out_via_json.py
+delete_all_dirs_not_in_choose_frames_middle.py
+delete_frames_from_choose_frames_all.py
+delete_all_dirs_renamed_frames.py
+
+rename_all_choose_frames_all.py
+rename_all_choose_frames.py
+rename_all_choose_frames_middle_frames.py
+rename_all_renamed_frames.py
+*.zip
